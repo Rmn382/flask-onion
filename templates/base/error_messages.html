@@ -1,0 +1,21 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for cat, msg in messages %}
+            {% set msg_split_by_newline = msg.split("\n") %}
+            {% if cat.startswith("error") %}
+                <div class="alert alert-danger text-center" role="alert">
+            {% elif cat.startswith("success") %}
+                <div class="alert alert-success text-center" role="alert">
+            {% elif cat.startswith("warning") %}
+                <div class="alert alert-warning text-center" role="alert">
+            {% else %}
+                <div class="alert alert-primary text-center" role="alert">
+            {% endif %}
+                    {% for line in msg_split_by_newline %}
+                        <p>{% if cat.endswith("-pre") %}<pre>{{ line }}</pre>
+                        {% else %} {{ line }} {% endif %} </p>
+                        {% endfor %}
+        </div>
+        {% endfor -%}
+    {% endif %}
+{% endwith %}

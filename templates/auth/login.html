@@ -1,0 +1,30 @@
+{% block title %}login{% endblock %}
+{% block page %}
+
+    <div class="container bg-light shadow-lg bg-light rounded w-75 m-5 p-3 mx-auto text-center">
+        <form class="form-signin" action="/auth/login" method="post">
+            {{ form.csrf_token }}
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+            <div class="form-outline mb-4">
+                {{ form.email.label }}
+                {{ form.email }}
+            </div>
+
+            <div class="form-outline mb-4">
+                {{ form.password.label }}
+                {{ form.password }}
+            </div>
+
+            <div class="form-outline mb-4">
+                {{ form.remember_me.label }}
+                {{ form.remember_me }}
+            </div>
+
+            {{ form.submit }}
+
+        </form>
+    </div>
+
+{% endblock %}
