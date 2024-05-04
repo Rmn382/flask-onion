@@ -25,6 +25,7 @@ def login():
             user = User(id=current_user.id, email=email, password=password)
             db.session.add(user)
             db.session.commit()
+            flash("user created", category="success")
         login_user(user)
         flash("login successful", category="success")
         return redirect(url_for("overview.index"))
