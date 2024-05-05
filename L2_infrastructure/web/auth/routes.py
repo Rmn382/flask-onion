@@ -13,6 +13,7 @@ from . import bp, forms
 def register():
     form = forms.RegisterForm()
     if request.method == 'POST' and form.validate_on_submit():
+        name = request.form.get('name')
         email = request.form.get('email')
 
         # check if email is already registered
@@ -22,10 +23,11 @@ def register():
             return redirect(url_for('register'))
 
         password = request.form.get('password')
-        user = User(email=email)
+        user = User(name=name, email=email)
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
+        flash('User successfully registered.')
         return redirect(url_for('home.index'))
     return render_template('auth/register.html', form=form)
 
