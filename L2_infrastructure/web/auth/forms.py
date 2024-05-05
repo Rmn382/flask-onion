@@ -19,6 +19,7 @@ class RegisterForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match.')])
     submit = SubmitField('Register')
 
+    # Custom validators: validate_<field_name> will be called when form.validate_on_submit() is called
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
