@@ -6,11 +6,11 @@
 
     <div class="container bg-light shadow-lg rounded w-75 m-5 p-3 mx-auto text-center">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
         <form class="form-signin" action="/auth/login" method="post">
             {{ form.csrf_token }}
             {{ render_form(form) }}
         </form>
-
 
         <a href="/auth/register" class="btn btn-link">Sign up</a>
     </div>
