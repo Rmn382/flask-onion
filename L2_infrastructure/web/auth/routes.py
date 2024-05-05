@@ -11,6 +11,10 @@ from . import bp, forms
 
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        flash("already logged in", category="warning")
+        return redirect(request.referrer or url_for("home.index"))
+
     form = forms.RegisterForm()
     if request.method == 'POST' and form.validate_on_submit():
         name = request.form.get('name')
@@ -33,13 +37,13 @@ def register():
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        flash("already logged in", category="warning")
+        return redirect(request.referrer or url_for("home.index"))
+
     if request.method == 'GET':
-        if current_user.is_authenticated:
-            flash("already logged in", category="warning")
-            return redirect(request.referrer or url_for("home.index"))
-        else:
-            form = forms.LoginForm()
-            return render_template('auth/login.html', form=form)
+        form = forms.LoginForm()
+        return render_template('auth/login.html', form=form)
 
     if request.method == 'POST':
         email = request.form.get('email')
