@@ -19,13 +19,6 @@ def register():
     if request.method == 'POST' and form.validate_on_submit():
         name = request.form.get('name')
         email = request.form.get('email')
-
-        # check if email is already registered
-        existing_user = User.query.filter_by(email=email).first()
-        if existing_user:
-            flash('Email already registered.')
-            return redirect(url_for('register'))
-
         password = request.form.get('password')
         user = User(name=name, email=email)
         user.set_password(password)
