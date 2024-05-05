@@ -63,6 +63,9 @@ def login():
 
 @bp.route('/logout')
 def logout():
+    if not current_user.is_authenticated:
+        flash("already logged out", category="warning")
+        return redirect(url_for("auth.login"))
     logout_user()
     flash("logged out", category="success")
     return redirect(url_for("auth.login"))
