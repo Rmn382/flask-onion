@@ -4,15 +4,11 @@
 {% block title %}login{% endblock %}
 {% block page %}
 
-    <div class="container bg-light shadow-lg rounded w-75 m-5 p-3 mx-auto text-center">
-        <form class="form-signin" action="/auth/login" method="post">
+    <div class="container bg-light shadow-lg bg-light rounded w-75 m-5 p-3 mx-auto text-center">
+        <form class="form-signin" action="/auth/register" method="post">
             {{ form.csrf_token }}
             {{ render_form(form) }}
         </form>
-
-
-
-        <a href="/auth/register" class="btn btn-link">Register</a>
     </div>
 
 {% endblock %}

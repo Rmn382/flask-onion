@@ -1,12 +1,15 @@
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap5
 
 import strings
 from config import Config
 
 login = LoginManager()
 db = SQLAlchemy()
+bootstrap = Bootstrap5()
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -16,10 +19,14 @@ def create_app(config_class=Config):
     login.init_app(app)
     login.login_view = "auth.login"
     db.init_app(app)
+    bootstrap.init_app(app)
 
     # register blueprints
     from L2_infrastructure.web.auth import bp as auth_bp
     app.register_blueprint(auth_bp)
+
+    from L2_infrastructure.web.home import bp as home_bp
+    app.register_blueprint(home_bp)
 
     @app.context_processor
     def inject_session_keys():

@@ -8,7 +8,7 @@ class Config(object):
     # CONFIGURATIONS
 
     # DB variables
-    SQLALCHEMY_DATABASE_URI = "sqlite:///dscrubber.database"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///app.database"
 
 
     # APP variables
