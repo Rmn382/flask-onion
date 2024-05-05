@@ -16,8 +16,11 @@
 
 <body>
 
+{% if not request.path.startswith('/auth/') %}
+    {% include 'base/navbar.html' %}
+{% endif %}
+
 {% include 'base/error_messages.html' %}
-{% include 'base/navbar.html' %}
 
 <div class="page-wrapper">
     {% block page %}

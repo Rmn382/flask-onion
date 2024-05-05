@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, flash, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from L1_service import home_service
 from . import bp
@@ -14,4 +14,5 @@ def before_request():
 
 @bp.route('/', methods=['GET'])
 def index():
-    return render_template('home/index.html')
+    user = current_user
+    return render_template('home/index.html', user=user)

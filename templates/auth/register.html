@@ -5,6 +5,7 @@
 {% block page %}
 
     <div class="container bg-light shadow-lg bg-light rounded w-75 m-5 p-3 mx-auto text-center">
+        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
         <form class="form-signin" action="/auth/register" method="post">
             {{ form.csrf_token }}
             {{ render_form(form) }}
