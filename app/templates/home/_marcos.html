@@ -1,3 +1,12 @@
 {% macro render_aggregate(aggregate) %}
 
+
+    <div class="container">
+        <div class="row m-3 justify-content-center">
+            <div class="col-md-12">
+                {{ aggregate.__repr__() }}
+            </div>
+        </div>
+    </div>
+
 {% endmacro %}

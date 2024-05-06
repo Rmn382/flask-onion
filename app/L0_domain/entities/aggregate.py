@@ -23,11 +23,11 @@ class Entity:
     Entity class that represents a domain entity with an identity. Should be accessed through an AggregateRoot.
     Example: order item.
     """
-    entity_id: int
     user_id: int
     name: str
-    attribute: any
+    example_float_attribute: float
     value_object: ValueObject
+    id: Optional[int] = None
 
     def update_name(self, new_name: str):
         self.name = new_name
@@ -39,21 +39,21 @@ class AggregateRoot:
     AggregateRoot class represents a collection of entities that are treated as a single unit.
     Example: order
     """
-    root_id: int
     user_id: int
-    attribute: any
+    example_bool_attribute: bool
     entities: List[Entity] = field(default_factory=list)
+    id: Optional[int] = None
 
-    def add_entity(self, entity_id: int, user_id: int, name: str, attribute: any, vo_attribute1: int, vo_attribute2: int, vo_attribute3: int):
+    def add_entity(self, user_id: int, name: str, attribute: any, vo_attribute1: int, vo_attribute2: int, vo_attribute3: int, entity_id: Optional[int]=None):
         vo = ValueObject(vo_attribute1, vo_attribute2, vo_attribute3)
-        new_entity = Entity(entity_id, user_id, name, attribute, vo)
+        new_entity = Entity(user_id, name, attribute, vo)
         self.entities.append(new_entity)
 
     def remove_entity(self, entity_id: int):
-        self.entities = [entity for entity in self.entities if entity.entity_id != entity_id]
+        self.entities = [entity for entity in self.entities if entity.id != entity_id]
 
     def find_entity(self, entity_id: int) -> Optional[Entity]:
         for entity in self.entities:
-            if entity.entity_id == entity_id:
+            if entity.id == entity_id:
                 return entity
         return None
