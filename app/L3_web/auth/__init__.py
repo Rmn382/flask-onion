@@ -2,4 +2,4 @@ from flask import Blueprint
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
-from L3_web.auth import routes
+from app.L3_web.auth import routes

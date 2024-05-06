@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from L0_domain.entities.aggregate import AggregateRoot
+from app.L0_domain.entities.aggregate import AggregateRoot
 
 
 class IAggregateRootRepository(ABC):
@@ -12,11 +12,11 @@ class IAggregateRootRepository(ABC):
         pass
 
     @abstractmethod
-    def remove(self, root_id):
+    def delete(self, root_id):
         pass
 
     @abstractmethod
-    def find_by_id(self, root_id) -> AggregateRoot:
+    def get(self, root_id) -> AggregateRoot:
         pass
 
     @abstractmethod

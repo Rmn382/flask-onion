@@ -24,6 +24,7 @@ class Entity:
     Example: order item.
     """
     entity_id: int
+    user_id: int
     name: str
     attribute: any
     value_object: ValueObject
@@ -39,12 +40,13 @@ class AggregateRoot:
     Example: order
     """
     root_id: int
+    user_id: int
     attribute: any
     entities: List[Entity] = field(default_factory=list)
 
-    def add_entity(self, entity_id: int, name: str, attribute: any, vo_attribute1: int, vo_attribute2: int, vo_attribute3: int):
+    def add_entity(self, entity_id: int, user_id: int, name: str, attribute: any, vo_attribute1: int, vo_attribute2: int, vo_attribute3: int):
         vo = ValueObject(vo_attribute1, vo_attribute2, vo_attribute3)
-        new_entity = Entity(entity_id, name, attribute, vo)
+        new_entity = Entity(entity_id, user_id, name, attribute, vo)
         self.entities.append(new_entity)
 
     def remove_entity(self, entity_id: int):

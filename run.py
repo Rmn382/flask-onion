@@ -1,7 +1,7 @@
 from flask import redirect, url_for
 from flask_login import login_required
 
-from __init__ import create_app
+from app import create_app
 
 app = create_app()
 

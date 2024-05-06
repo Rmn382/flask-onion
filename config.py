@@ -13,4 +13,5 @@ class Config(object):
 
     # APP variables
     SECRET_KEY = "super_secret_key"
+    TEMPLATE_DIR = "app/templates"
 

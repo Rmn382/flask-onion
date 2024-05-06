@@ -1,5 +1,5 @@
-from L0_domain.entities.aggregate import AggregateRoot
-from L1_application.interfaces.aggregate import IAggregateRootRepository
+from app.L0_domain.entities.aggregate import AggregateRoot
+from app.L1_application.interfaces.aggregate import IAggregateRootRepository
 
 
 class AggregateRootService:
@@ -7,7 +7,7 @@ class AggregateRootService:
         self.repository = repository
 
     def create_aggregate_root(self) -> AggregateRoot:
-        new_aggregate = AggregateRoot(root_id=1)  # Example root_id, typically generated
+        new_aggregate = AggregateRoot()  # Example root_id, typically generated
         self.repository.add(new_aggregate)
         return new_aggregate
 
