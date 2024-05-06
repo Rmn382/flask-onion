@@ -4,6 +4,9 @@ from L0_domain.entities.aggregate import AggregateRoot
 
 
 class IAggregateRootRepository(ABC):
+    """
+    CRUD operations for AggregateRoot objects.
+    """
     @abstractmethod
     def add(self, aggregate_root: AggregateRoot):
         pass
