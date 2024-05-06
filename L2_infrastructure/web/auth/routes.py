@@ -2,8 +2,7 @@ from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, current_user, logout_user
 
 from __init__ import db
-from L2_infrastructure.database.models import User
-from L1_service import auth_service
+from L2_infrastructure.database.models.user import User
 from . import bp, forms
 
 
