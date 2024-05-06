@@ -11,10 +11,10 @@ class AggregateRootService:
         self.repository.add(new_aggregate)
         return new_aggregate
 
-    def delete_aggregate_root(self, root_id) -> None:
+    def delete_aggregate_root(self, root_id: int) -> None:
         self.repository.remove(root_id)
 
-    def add_entity_to_aggregate(self, root_id, entity_id, name, attribute1, attribute2):
+    def add_entity_to_aggregate(self, root_id: int, entity_id: int, name: str, attribute1: str, attribute2: int):
         aggregate_root = self.repository.find_by_id(root_id)
         if aggregate_root:
             aggregate_root.add_entity(entity_id, name, attribute1, attribute2)
