@@ -24,3 +24,8 @@ class RegisterForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('email address already in use.')
+
+    def validate_name(self, name):
+        user = User.query.filter_by(name=name.data).first()
+        if user is not None:
+            raise ValidationError('name already in use.')

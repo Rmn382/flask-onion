@@ -1,7 +1,6 @@
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user
 
-from L1_application import home_service
 from . import bp
 
 
