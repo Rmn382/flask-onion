@@ -5,7 +5,6 @@ from app import create_app
 
 app = create_app()
 
-
 @app.route('/')
 @login_required
 def index():
@@ -13,4 +12,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

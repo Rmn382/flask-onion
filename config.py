@@ -12,6 +12,6 @@ class Config(object):
 
 
     # APP variables
-    SECRET_KEY = "super_secret_key"
+    SECRET_KEY = os.environ.get("SECRET_KEY") or "you-will-never-guess"
     TEMPLATE_DIR = "app/templates"
 

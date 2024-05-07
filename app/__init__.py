@@ -13,6 +13,8 @@ bootstrap = Bootstrap5()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
+
+    # load config
     app.config.from_object(config_class)
 
     # initialize extensions
@@ -28,6 +30,7 @@ def create_app(config_class=Config):
     from app.L3_web.home import bp as home_bp
     app.register_blueprint(home_bp)
 
+    # make available in templates
     @app.context_processor
     def inject_session_keys():
         return {"strings": strings}
