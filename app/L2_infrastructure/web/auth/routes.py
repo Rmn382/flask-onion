@@ -38,10 +38,12 @@ def login():
         return render_template('auth/login.html', form=form)
 
     if request.method == 'POST':
-        email = request.form.get('email')
+        email_or_username = request.form.get('email_or_username')
         password = request.form.get('password')
-        user = User.query.filter_by(email=email).first()
-        if not user:
+        user = User.query.filter_by(email=email_or_username).first()
+        if user is None:
+            user = User.query.filter_by(name=email_or_username).first()
+        if user is None:
             flash("user not found", category="danger")
             return redirect(url_for("auth.login"))
         elif user.check_password(password):
