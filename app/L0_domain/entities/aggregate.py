@@ -17,7 +17,7 @@ class ValueObject:
     attribute3: int
 
 
-@dataclass
+@dataclass  # dataclass is a decorator that automatically generates special methods like __init__ and __repr__
 class Entity:
     """
     Entity class that represents a domain entity with an identity. Should be accessed through an AggregateRoot.

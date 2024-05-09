@@ -2,11 +2,13 @@ services:
   web:
     build:
       context: .
-      dockerfile: deploy/flask/Dockerfile  # This is the Dockerfile name; ensure it matches
+      dockerfile: deploy/flask/Dockerfile
     volumes:
       - .:/flask-onion
     expose:
       - 8000
+    environment:
+      FLASK_ENV: production
 
   nginx:
     image: nginx:latest
