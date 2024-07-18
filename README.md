@@ -9,6 +9,7 @@ A basic Flask web application template based on an Onion Architecture.
 - User login and registration features
 - Separating different web controllers using Flask Blueprints
 - SQLite database integration with SQLAlchemy
+- Bootstarp used for frontend styling
 - Containerized deployment via Docker Compose
 
 ![Onion Architecture](https://herbertograca.com/wp-content/uploads/2017/03/2008-onion-architecture5.png)
