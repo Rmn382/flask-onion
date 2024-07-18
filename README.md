@@ -1,6 +1,6 @@
 # Onion Architecture
 
-A basic Flask web application template based on Onion Architecture.
+A basic Flask web application template based on an Onion Architecture.
 
 ## Features
 - 3-layered Onion Architecture: L1 - Infrastructure, L2 - Application, L3 - Domain
